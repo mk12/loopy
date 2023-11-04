@@ -4,31 +4,35 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loopy</title>
+    <link rel="icon" sizes="any" href="favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <img src="logo.svg" width="150" height="88">
+        <div class="title">
+            <img src="logo.svg" width="150" height="88">
+            <p class="tagline">Knitting pattern visualizer</p>
+        </div>
         <nav>
             <ul>
-                <li><a href="https://github.com/mk12/loopy">GitHub</a></li>
                 <li><a href="#">Help</a></li>
+                <li><a href="https://github.com/mk12/loopy">GitHub</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="input">
-            <div class="label">Pattern</div>
+        <div class="lhs">
+            <h1>Pattern</h1>
             <textarea id="Input">k1p1</textarea>
         </div>
-        <div class="output">
-            <div class="label">Visualization</div>
-            <canvas id="Output"></canvas>
+        <div class="rhs">
+            <h1>Visualization</h1>
+            <canvas id="Canvas"></canvas>
         </div>
     </main>
     <footer>
-        <p>Check out the source <a href="https://github.com/mk12/loopy">on GitHub</a>.</p>
         <p>© 2023 Mitchell Kember</p>
     </footer>
 </body>

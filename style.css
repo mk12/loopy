@@ -5,8 +5,32 @@ body {
     background: #e4e0ff;
 }
 
-p {
-    margin: 1em;
+header {
+    display: flex;
+    margin-bottom: 1em;
+    justify-content: space-between;
+}
+
+.title {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.tagline {
+    font-style: italic;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    display: inline;
+}
+
+footer {
+    margin-top: 2em;
 }
 
 main {
@@ -14,22 +38,25 @@ main {
     gap: 20px;
 }
 
-.label {
-    display: flex;
-    justify-content: center;
-    font-weight: bold;;
-}
-
-footer {
-    margin-top: 2em;
-}
-
-.input, .output {
+main > div {
     display: flex;
     flex-direction: column;
 }
-.input { flex: 0; }
-.output { flex: 1 1; }
+
+.lhs {
+    flex: 0;
+}
+
+.rhs {
+    flex: 1 1;
+}
+
+h1 {
+    font-size: inherit;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
 
 textarea {
     font: 20px serif;
@@ -41,24 +68,25 @@ textarea {
     box-sizing: border-box;
 }
 
-textarea, canvas {
+textarea,
+canvas {
     border: 1px solid black;
 }
 
-canvas { flex: 1 1 0; }
+canvas {
+    flex: 1 1 0;
+    max-width: 100%;
+    max-height: 100%;
+}
 
 @media only screen and (max-width: 800px) {
-    body {
-        margin: 1em 10px;
-    }
-
     main {
         flex-direction: column;
     }
 
     textarea {
         resize: vertical;
-        width: 100%;
+        width: 100% !important;
         min-width: initial;
         max-width: 100%;
         min-height: 200px;
@@ -66,5 +94,11 @@ canvas { flex: 1 1 0; }
 
     canvas {
         flex: initial;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    body {
+        margin: 1em 10px;
     }
 }
