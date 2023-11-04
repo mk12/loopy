@@ -1,14 +1,57 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html,
+body,
+textarea,
+canvas,
+h1,
+p {
+    margin: 0;
+    font: inherit;
+}
+
+:root {
+    color-scheme: light dark;
+    --fg: #000;
+    --bg: #e4e0ff;
+    --border: #000;
+    --btn: #fff;
+    --btn-hover: #ccc;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fg: #e0e0e0;
+        --bg: #1d1837;
+        --border: #777;
+        --btn: #2f256d;
+        --btn-hover: #6f61ce;
+    }
+}
+
 body {
-    margin: 1em 20px;
+    color: var(--fg);
+    background: var(--bg);
     font: 20px serif;
-    text-align: center;
-    background: #e4e0ff;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    height: 100vh;
 }
 
 header {
     display: flex;
-    margin-bottom: 1em;
     justify-content: space-between;
+    align-items: center;
 }
 
 .title {
@@ -21,24 +64,39 @@ header {
     font-style: italic;
 }
 
-nav ul {
+p {
+    margin-bottom: 4px;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
     list-style: none;
 }
 
-nav li {
-    display: inline;
+nav a {
+    font: 18px sans-serif;
+    color: inherit;
+    background: var(--btn);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 6px;
+    border-radius: 8px;
 }
 
-footer {
-    margin-top: 2em;
+nav a:hover {
+    background: #ccc;
+    background: var(--btn-hover);
 }
 
 main {
+    flex: 1;
     display: flex;
     gap: 20px;
 }
 
-main > div {
+.lhs,
+.rhs {
     display: flex;
     flex-direction: column;
 }
@@ -52,34 +110,37 @@ main > div {
 }
 
 h1 {
-    font-size: inherit;
-    margin: 0;
+    font-weight: bold;
     display: flex;
     justify-content: center;
 }
 
-textarea {
-    font: 20px serif;
-    width: 30vw;
-    min-width: 150px;
-    max-width: 80vw;
-    min-height: 500px;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 textarea,
 canvas {
-    border: 1px solid black;
+    border: 1px solid var(--border);
+}
+
+textarea {
+    min-height: 2em;
 }
 
 canvas {
     flex: 1 1 0;
+    min-height: 0;
     max-width: 100%;
-    max-height: 100%;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (min-width: 800px) {
+    textarea {
+        resize: horizontal;
+        height: 100% !important;
+        width: 30vw;
+        min-width: 100px;
+        max-width: calc(100vw - 200px);
+    }
+}
+
+@media only screen and (max-width: 799px) {
     main {
         flex-direction: column;
     }
@@ -87,18 +148,38 @@ canvas {
     textarea {
         resize: vertical;
         width: 100% !important;
-        min-width: initial;
-        max-width: 100%;
-        min-height: 200px;
-    }
-
-    canvas {
-        flex: initial;
+        height: 20vh;
+        max-height: calc(100vh - 300px);
     }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 670px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media only screen and (max-width: 399px) {
     body {
-        margin: 1em 10px;
+        height: inherit;
+        padding: 1em;
+    }
+
+    .title {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    textarea {
+        max-height: initial;
+    }
+
+    canvas {
+        min-height: 340px;
     }
 }
