@@ -1,0 +1,70 @@
+body {
+    margin: 1em 20px;
+    font: 20px serif;
+    text-align: center;
+    background: #e4e0ff;
+}
+
+p {
+    margin: 1em;
+}
+
+main {
+    display: flex;
+    gap: 20px;
+}
+
+.label {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;;
+}
+
+footer {
+    margin-top: 2em;
+}
+
+.input, .output {
+    display: flex;
+    flex-direction: column;
+}
+.input { flex: 0; }
+.output { flex: 1 1; }
+
+textarea {
+    font: 20px serif;
+    width: 30vw;
+    min-width: 150px;
+    max-width: 80vw;
+    min-height: 500px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+textarea, canvas {
+    border: 1px solid black;
+}
+
+canvas { flex: 1 1 0; }
+
+@media only screen and (max-width: 800px) {
+    body {
+        margin: 1em 10px;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    textarea {
+        resize: vertical;
+        width: 100%;
+        min-width: initial;
+        max-width: 100%;
+        min-height: 200px;
+    }
+
+    canvas {
+        flex: initial;
+    }
+}
