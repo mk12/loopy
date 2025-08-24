@@ -2,18 +2,11 @@ html {
     box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
+*, *:before, *:after {
     box-sizing: inherit;
 }
 
-html,
-body,
-textarea,
-canvas,
-h1,
-p {
+html, body, textarea, canvas, h1, p {
     margin: 0;
     font: inherit;
 }
@@ -29,8 +22,8 @@ p {
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --fg: #e0e0e0;
-        --bg: #1d1837;
+        --fg: #c4c4c4;
+        --bg: #1c192a;
         --border: #777;
         --btn: #2f256d;
         --btn-hover: #6f61ce;
@@ -64,6 +57,16 @@ header {
     font-style: italic;
 }
 
+.github {
+    margin-left: 3px;
+    vertical-align: -3px;
+    color: var(--fg);
+}
+
+.github:hover {
+    color: var(--btn-hover);
+}
+
 p {
     margin-bottom: 4px;
 }
@@ -95,8 +98,7 @@ main {
     gap: 20px;
 }
 
-.lhs,
-.rhs {
+.lhs, .rhs {
     display: flex;
     flex-direction: column;
 }
@@ -115,8 +117,7 @@ h1 {
     justify-content: center;
 }
 
-textarea,
-canvas {
+textarea, canvas {
     border: 1px solid var(--border);
 }
 
